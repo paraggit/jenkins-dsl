@@ -8,3 +8,11 @@ job("MyProject-Build") {
         shell "Look: I'm building master!"
     }
 }
+
+// This accepts changes in the script approval section of 'Manage Jenkins'.
+
+org.jenkinsci.plugins.scriptsecurity.scripts.ScriptApproval.get().with { approval ->
+  approval.preapproveAll()
+  approval.save()
+}
+
